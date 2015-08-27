@@ -56,7 +56,8 @@
 						<i class="material-icons">more_vert</i>
 					</button>
 					<ul class="mdl-menu mdl-js-menu mdl-menu--bottom-right mdl-js-ripple-effect" for="more-button">
-						<li class="mdl-menu__item" onclick="window.location.href = 'https://github.com/ButchersBoy/MaterialDesignInXamlToolkit'">GitHub</li>						
+						<li class="mdl-menu__item" onclick="window.location.href = 'https://github.com/ButchersBoy/MaterialDesignInXamlToolkit'">GitHub</li>
+						<li class="mdl-menu__item" onclick="window.location.href = 'https://twitter.com/James_Willock'">Twitter</li>						
 						<li class="mdl-menu__item" onclick="window.location.href = 'http://dragablz.net/category/material-design/'">Blog</li>
 						<li class="mdl-menu__item" onclick="window.location.href = 'http://dragablz.net/'">Dragablz</li>
 						<li class="mdl-menu__item" onclick="window.location.href = 'http://mahapps.com/'">MahApps</li>
@@ -151,7 +152,19 @@
 							You can copy the <a href="https://raw.githubusercontent.com/ButchersBoy/MaterialDesignInXamlToolkit/master/MaterialDesignColors.WpfExample/App.xaml" target="_blank">app.xaml content from here</a>.
 						</p>
 						<p>
-							Now, in your <code>MainWindow.xaml</code> add a couple of controls, say a <code>Button</code> and <code>CheckBox</code>.  Run up the project and they should appear in the new theme.
+							Now, in your <code>MainWindow.xaml</code> add a few attributes to the root to configure the the colours and Roboto font: 
+						</p>
+						<p>
+							<code>
+								&lt;MainWindow</br>
+								&nbsp;&nbsp;&nbsp;&nbsp;TextElement.Foreground="{DynamicResource MaterialDesignBody}"<br>
+        						&nbsp;&nbsp;&nbsp;&nbsp;Background="{DynamicResource MaterialDesignPaper}"<br>
+        						&nbsp;&nbsp;&nbsp;&nbsp;FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto"<br>
+								&gt;
+							</code>
+						</p>
+						<p>
+							And you're ready to start adding controls: add a couple, say a <code>Button</code> and <code>CheckBox</code>.  Run up the project and they should appear in the new theme.
 						</p>
 						<p>
 							You can go back and adjust the palette (and light/dark mode) in the App.xaml, it is clearly marked where to adjust the primary and accent colour. Note the palette can be adjusted at runtime using <code>PaletteHelper</code>.
