@@ -527,3 +527,48 @@ background-color: white;
     display: none;
   }
 }
+
+
+.f1-ribbon {
+  width: 100%;
+  height: 40vh;
+  background-color: #3F51B5;
+  flex-shrink: 0;
+}
+
+.f1-main {
+  margin-top: -35vh;
+  flex-shrink: 0;
+}
+
+.f1-header .mdl-layout__header-row {
+  padding-left: 40px;
+}
+
+.f1-container {
+  max-width: 1600px;
+  width: calc(100% - 16px);
+  margin: 0 auto;
+}
+
+.f1-content {
+  border-radius: 2px;
+  padding: 80px 56px;
+  margin-bottom: 80px;
+}
+
+.f1-layout.is-small-screen .f1-content {
+  padding: 40px 28px;
+}
+
+.f1-content h3 {
+  margin-top: 48px;
+}
+
+.f1-footer {
+  padding-left: 40px;
+}
+
+.f1-footer .mdl-mini-footer--link-list a {
+  font-size: 13px;
+}

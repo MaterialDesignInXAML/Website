@@ -1,6 +1,17 @@
 <html>
 <head>
 <title>F1ix</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="description" content="F1ix.  Formula 1 Results and Stats App for Windows.">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="keywords" content="f1, formula 1, racing, cars, engines, results, stansings, championship">
+<link href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en" rel="stylesheet">
+<link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.4/material.blue_grey-indigo.min.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="stylesheets/style.css">
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
 <script type="text/javascript">
 $(document).ready(function () {
@@ -12,7 +23,7 @@ function GetLatestReleaseInfo() {
 		var asset = findSetupAsset(release.assets);
 		var releaseInfo = release.name;
 		$(".setup-download").attr("href", asset.browser_download_url);		
-		$(".release-info").text(releaseInfo);		
+		$(".setup-download").text("Download " + releaseInfo);		
 	});
 }
 
@@ -26,10 +37,50 @@ function findSetupAsset(assets) {
 </script>
 </head>
 <body>
-	<h1>F1ix</h1>
-	<p class="release-info">loading...</p>
-	<a class="setup-download">Download installer</a>
-	<script>
+<div class="f1-layout mdl-layout mdl-layout--fixed-header mdl-js-layout mdl-color--grey-100">
+      <header class="f1-header mdl-layout__header mdl-layout__header--scroll mdl-color--grey-100 mdl-color-text--grey-800">
+        <div class="mdl-layout__header-row">
+          <span class="mdl-layout-title">F1<i>ix</i> - Formula app 1 for Windows</span>
+          <div class="mdl-layout-spacer"></div>
+          <div class="mdl-textfield mdl-js-textfield">
+            <a class="setup-download">Download Installer</a>
+          </div>
+        </div>
+      </header>
+      <div class="f1-ribbon"></div>
+      <main class="f1-main mdl-layout__content">
+        <div class="f1-container mdl-grid">
+          <div class="mdl-cell mdl-cell--2-col mdl-cell--hide-tablet mdl-cell--hide-phone"></div>
+          <div class="f1-content mdl-color--white mdl-shadow--4dp content mdl-color-text--grey-800 mdl-cell mdl-cell--8-col">			
+			<img src="/images/f1ix-150x150.png">			  
+            <h3>F1<i>ix</i> is a free Formula 1 results and stats app for Windows</h3>
+              <p>
+                Works on Windows 7, 8 and 10, just download the installer, install once and the application will automatically keep itself updated.
+              </p>
+              <p>
+                Provides results, standings, calendar, fastest laps etc.
+              </p>
+			       <a class="setup-download">Download Installer</a>
+            <h4>It's open source</h4>
+              <p>
+                F1<i>ix</i> is open source, and therefore free.  The installer is safe, and the app is brought to you by people who develop for Windows in the open source community.  It's based on Material Design In XAML Toolkit.
+              </p>
+			       <img src="/images/f1ix-ss-1.png">				 			  
+             <img src="/images/f1ix-ss-2.png">
+             <img src="/images/f1ix-ss-3.png">
+          </div>
+        </div>		
+        <footer class="f1-footer mdl-mini-footer">
+          <div class="mdl-mini-footer--left-section">
+            <ul class="mdl-mini-footer--link-list">
+              <li><a href="https://github.com/MaterialDesignInXAML/F1InXAML">GitHub</a></li>              
+            </ul>
+          </div>
+        </footer>
+      </main>
+    </div>    
+    <script src="$$hosted_libs_prefix$$/$$version$$/material.min.js"></script>
+		<script>
 		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
 		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
@@ -39,5 +90,8 @@ function findSetupAsset(assets) {
 		ga('send', 'pageview');
 	
 	</script>
+  	
+	
+	
 </body>
 </html>
