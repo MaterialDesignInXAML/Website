@@ -1,0 +1,33 @@
+<html>
+<head>
+<title>F1ix</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function () {
+	GetLatestReleaseInfo();
+});
+
+function GetLatestReleaseInfo() {
+	$.getJSON("https://api.github.com/repos/MaterialDesignInXAML/F1InXAML/releases/latest").done(function (release) {		
+		var asset = findSetupAsset(release.assets);
+		var releaseInfo = release.name;
+		$(".setup-download").attr("href", asset.browser_download_url);		
+		$(".release-info").text(releaseInfo);		
+	});
+}
+
+function findSetupAsset(assets) {
+	for (var i = 0; i < assets.length; i++) {
+		if (assets[i].name.toLowerCase() == "setup.exe")
+			return assets[i];	
+	}
+	return null;
+}
+</script>
+</head>
+<body>
+	<h1>F1ix</h1>
+	<p class="release-info">loading...</p>
+	<a class="setup-download">Download installer</a>
+</body>
+</html>
