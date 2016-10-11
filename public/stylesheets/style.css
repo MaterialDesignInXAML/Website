@@ -572,3 +572,21 @@ background-color: white;
 .f1-footer .mdl-mini-footer--link-list a {
   font-size: 13px;
 }
+
+.no-padding {
+  padding: 0;
+}
+
+.standard-max-width {
+  max-width: 900px;
+  margin: auto;
+}
+
+.standard-copy {
+  max-width: 700px;
+}
+
+img.article-image {
+  width: 100%;
+  height: auto;
+}

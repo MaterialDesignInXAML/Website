@@ -1,13 +1,28 @@
-<html>
+<html itemscope itemtype="http://schema.org/Article">
 <head>
 <title>doobry</title>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="description" content="doobry for DocumentDb">
+<meta name="description" content="doobry, the NoSQL Editor for DocumentDb">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="keywords" content="doobry, azure, documentdb, sql, nosql, database, document">
+<meta itemprop="name" content="doobry">
+<meta itemprop="description" content="doobry, the NoSQL Editor for DocumentDb">
+<meta itemprop="image" content="http://materialdesigninxaml.net/images/doobry-512-onwhite.png">
+<meta name="twitter:card" content="doobry, the NoSQL Editor for DocumentDb">
+<meta name="twitter:site" content="@james_willock">
+<meta name="twitter:title" content="doobry">
+<meta name="twitter:description" content="doobry, the NoSQL Editor for DocumentDb">
+<meta name="twitter:creator" content="@james_willock">
+<meta name="twitter:image:src" content="http://materialdesigninxaml.net/images/doobry-512-onwhite.png">
+<meta property="og:title" content="doobry" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://materialdesigninxaml.net/doobry" />
+<meta property="og:image" content="https://materialdesigninxaml.net/images/doobry-512-onwhite.png" />
+<meta property="og:description" content="doobry, the NoSQL Editor for DocumentDb" />
+<meta property="og:site_name" content="doobry" />
 <link href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en" rel="stylesheet">
-<link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.4/material.blue_grey-indigo.min.css">
+<link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.2.1/material.blue_grey-indigo.min.css">
 
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 <link rel="stylesheet" href="stylesheets/style.css">
@@ -37,59 +52,117 @@ function findSetupAsset(assets) {
 </script>
 </head>
 <body>
-<div class="f1-layout mdl-layout mdl-layout--fixed-header mdl-js-layout mdl-color--grey-100">
-      <header class="f1-header mdl-layout__header mdl-layout__header--scroll mdl-color--grey-100 mdl-color-text--grey-800">
-        <div class="mdl-layout__header-row">
-          <span class="mdl-layout-title">doobry for DocumentDb</span>
-          <div class="mdl-layout-spacer"></div>
-          <div class="mdl-textfield mdl-js-textfield">
-            <a class="setup-download">Download Installer</a>
+<div class="mdl-layout mdl-layout--fixed-header mdl-js-layout">
+    <header class="f1-header mdl-layout__header mdl-layout__header--scroll mdl-color--grey-100 mdl-color-text--grey-800">
+      <div class="mdl-layout__header-row">
+        <span class="mdl-layout-title">doobry</span>
+        <div class="mdl-layout-spacer"></div>
+        <div class="mdl-textfield mdl-js-textfield">
+          <a class="setup-download">Download Installer</a>
+        </div>
+      </div>
+    </header>
+    
+    <div class="f1-ribbon"></div>
+    <main class="mdl-layout__content f1-main ">      
+      <div class="mdl-grid standard-max-width">
+        
+        <div class="mdl-cell mdl-cell--12-col mdl-card mdl-shadow--4dp">
+          
+          <div class="mdl-grid standard-copy">            
+            <div class="mdl-cell mdl-cell--12-col">              
+              <img src="/images/doobry-256-onwhite.png" alt="doobry">              
+            </div>
+            <h3 class="mdl-cell mdl-cell--12-col mdl-typography--headline">doobry, the SQL editor for Azure DocumentDb</h3>
+            <div class="mdl-cell mdl-cell--6-col mdl-card__supporting-text no-padding">
+                <p>
+                    doobry is a NoSQL development and administration tool for Azure DocumentDb.
+                </p>
+                <p>
+                    It is open source, and free to use, working on Windows 7, 8 and 10.
+                </p>
+                <a class="setup-download">Download Installer</a>
+            </div>            
+            <div class="mdl-cell mdl-cell--6-col">
+              <a href="/images/screen-query-runner.png">
+                <img class="article-image" src="/images/screen-query-runner-500.png" border="0" alt="Main SQL Window">
+              </a>
+            </div>
+            <div class="mdl-cell mdl-cell--12-col mdl-card__supporting-text no-padding">
+              <a class="github-button" href="https://github.com/ButchersBoy/doobry" data-icon="octicon-star" data-style="mega" data-count-href="/ButchersBoy/doobry/stargazers" data-count-api="/repos/ButchersBoy/doobry#stargazers_count" data-count-aria-label="# stargazers on GitHub" aria-label="Star ButchersBoy/doobry on GitHub">Star
+              </a>              
+            </div>
+            <h3 class="mdl-cell mdl-cell--12-col mdl-typography--headline">Slick and Simple, but Feature Rich</h3>
+            <div class="mdl-cell mdl-cell--6-col mdl-card__supporting-text no-padding">
+                <p>
+                    Easily work with documents in your collections:
+                </p>
+                <ul>
+                  <li>Add</li>
+                  <li>Edit</li>
+                  <li>Delete</li>
+                </ul>                
+            </div>            
+            <div class="mdl-cell mdl-cell--6-col">
+              <a href="/images/screen-document-editor.png">
+                <img class="article-image" src="/images/screen-document-editor-500.png" border="0" alt="Document Editor">
+              </a>
+            </div>
+            <div class="mdl-cell mdl-cell--6-col mdl-card__supporting-text no-padding">
+                <p>
+                    Manage and query against multiple databases/collections.
+                </p>
+            </div>            
+            <div class="mdl-cell mdl-cell--6-col">
+              <a href="/images/screen-manage-collections.png">
+                <img class="article-image" src="/images/screen-manage-collections-500.png" border="0" alt="Document Editor">
+              </a>
+            </div>
+            <div class="mdl-cell mdl-cell--6-col mdl-card__supporting-text no-padding">
+                <p>
+                    Harness the power of Windows to work with multiple collections at once:
+                </p>
+                <ul>
+                  <li>Tearable tabs</li>
+                  <li>Simple docking</li>
+                  <li>Layout persistance</li>
+                </ul>
+            </div>            
+            <div class="mdl-cell mdl-cell--6-col">
+              <a href="/images/screen-side-by-side.png">
+                <img class="article-image" src="/images/screen-side-by-side-500.png" border="0" alt="Document Editor">
+              </a>
+            </div>
+            <h3 class="mdl-cell mdl-cell--12-col mdl-typography--headline">Open Source</h3>
+            <div class="mdl-cell mdl-cell--12-col mdl-card__supporting-text no-padding">
+              <p>
+                doobry is fully open source; a C# application written by the same developer of, and utilizing <a href="https://github.com/ButchersBoy/MaterialDesignInXamlToolkit">Material Design in XAML Toolkit</a>
+                and <a href="https://github.com/ButchersBoy/Dragablz">Dragablz</a>.
+              <p>
+              <p>
+                The full source for doobry can be found <a href="https://github.com/ButchersBoy/doobry">on GitHub</a>.
+              </p>              
+              <a class="github-button" href="https://github.com/ButchersBoy/doobry" data-icon="octicon-star" data-style="mega" data-count-href="/ButchersBoy/doobry/stargazers" data-count-api="/repos/ButchersBoy/doobry#stargazers_count" data-count-aria-label="# stargazers on GitHub" aria-label="Star ButchersBoy/doobry on GitHub">Star
+              </a>
+            </div>
           </div>
         </div>
-      </header>
-      <div class="f1-ribbon"></div>
-      <main class="f1-main mdl-layout__content">
-        <div class="f1-container mdl-grid">
-          <div class="mdl-cell mdl-cell--2-col mdl-cell--hide-tablet mdl-cell--hide-phone"></div>
-          <div class="f1-content mdl-color--white mdl-shadow--4dp content mdl-color-text--grey-800 mdl-cell mdl-cell--8-col">			
-			      <img src="/images/doobry-512-onwhite.png">			  
-            <h3>doobry is a free and fully open source developer &amp;  administrator tool for DocumentDb</h3>
-              <p>
-                Works on Windows 7, 8 and 10, just download the installer, install once and the application will automatically keep itself updated.
-              </p>
-              <p>
-                Develop and test your DocumentDb SQL scripts, query your databases, add, copy and remove documents.
-              </p>
-			       <a class="setup-download">Download Installer</a>
-            <h4>It's open source</h4>
-              <p>
-                doobry is open source, and therefore free.  The installer is safe, and the app is brought to you by people who develop for Windows in the open source community.  It's buily by the same people who develop Material Design In XAML Toolkit and Dragablz.
-              </p>
-			       <img src="/images/f1ix-ss-1.png">				 			  
-             <img src="/images/f1ix-ss-2.png">
-             <img src="/images/f1ix-ss-3.png">
-          </div>
-        </div>		
-        <footer class="f1-footer mdl-mini-footer">
-          <div class="mdl-mini-footer--left-section">
-            <ul class="mdl-mini-footer--link-list">
-              <li><a href="https://github.com/ButchersBoy/doobry">GitHub</a></li>              
-            </ul>
-          </div>
-        </footer>
-      </main>
+      </div>
+    </main>
+
     </div>    
-    <script src="$$hosted_libs_prefix$$/$$version$$/material.min.js"></script>
+    <script src="https://code.getmdl.io/1.2.1/material.min.js"></script>
+    <script async defer src="https://buttons.github.io/buttons.js"></script>    
 		<script>
-		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-	
-		ga('create', 'UA-63510848-2', 'auto');
-		ga('send', 'pageview');
-	
-	</script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    
+      ga('create', 'UA-63510848-2', 'auto');
+      ga('send', 'pageview');
+    
+    </script>
   	
 	
 	
