@@ -37,8 +37,8 @@ function GetLatestReleaseInfo() {
 	$.getJSON("https://api.github.com/repos/ButchersBoy/doobry/releases/latest").done(function (release) {		
 		var asset = findSetupAsset(release.assets);
 		var releaseInfo = release.name;
-		$(".setup-download").attr("href", asset.browser_download_url);		
-		$(".setup-download").text("Download " + releaseInfo);		
+		$(".setup-download-doobry").attr("href", asset.browser_download_url);		
+		$(".setup-download-doobry").text("Download " + releaseInfo);		
 	});
 }
 
@@ -51,24 +51,73 @@ function findSetupAsset(assets) {
 }
 </script>
 </head>
-<body>
+<body class="mdl-demo mdl-color--grey-100 mdl-color-text--grey-700 mdl-base">
 <div class="mdl-layout mdl-layout--fixed-header mdl-js-layout">
-    <header class="f1-header mdl-layout__header mdl-layout__header--scroll mdl-color--grey-100 mdl-color-text--grey-800">
-      <div class="mdl-layout__header-row">
-        <span class="mdl-layout-title">doobry</span>
-        <div class="mdl-layout-spacer"></div>
-        <div class="mdl-textfield mdl-js-textfield">
-          <a class="setup-download">Download Installer</a>
-        </div>
+
+  <header class="mdl-layout__header mdl-layout__header--scroll mdl-color--primary">
+    <div class="mdl-layout--large-screen-only mdl-layout__header-row">
+    </div>
+    <div class="mdl-layout--large-screen-only mdl-layout__header-row">
+      <h3>doobry</h3>
+    </div>
+    <div class="mdl-layout--large-screen-only mdl-layout__header-row">    
+    </div>
+    <div class="mdl-layout__tab-bar mdl-js-ripple-effect">    
+      <div class="mdl-tabs__tab-bar">
+        <a href="#home" class="mdl-layout__tab">Material Design In XAML</a>
+        <a href="#showcase" class="mdl-layout__tab">Showcase</a>
+        <a href="#F1ix" class="mdl-layout__tab">F1ix</a>
+        <a href="#doobry" class="mdl-layout__tab is-active">doobry</a>
       </div>
-    </header>
-    
-    <div class="f1-ribbon"></div>
-    <main class="mdl-layout__content f1-main ">      
+    </div>
+  </header>
+
+  <main class="mdl-layout__content">
+    <div class="mdl-layout__tab-panel" id="home">
+      home
+    </div>                    
+    <div class="mdl-layout__tab-panel" id="showcase">
+      showcase
+    </div>
+    <div class="mdl-layout__tab-panel" id="F1ix">
+      <div class="mdl-grid standard-max-width">
+      
+        <div class="mdl-cell mdl-cell--12-col mdl-card mdl-shadow--4dp">          
+          <div class="mdl-grid standard-copy">            
+            <div class="mdl-cell mdl-cell--12-col">              
+              <img src="/images/f1ix-150x150.png" alt="F1ix">              
+            </div>
+            <h3 class="mdl-cell mdl-cell--12-col mdl-typography--headline">F1<i>ix</i> - Formula app 1 for Windows</h3>
+            <div class="mdl-cell mdl-cell--6-col mdl-card__supporting-text no-padding">
+                <p>
+                  F1<i>ix</i> is a free Formula 1 results and stats app for Windows
+                </p>
+                <p>
+                    Works on Windows 7, 8 and 10, just download the installer, install once and the application will automatically keep itself updated.
+                </p>
+                <p>
+                    Provides results, standings, calendar, fastest laps etc.
+                </p>
+                <a class="setup-download">Download Installer</a>
+            </div>            
+            <div class="mdl-cell mdl-cell--6-col">
+              <a href="/images/f1ix-ss-1.png">
+                <img class="article-image" src="/images/f1ix-ss-1.png" border="0" alt="TODO">
+              </a>
+            </div>
+            <div class="mdl-cell mdl-cell--12-col mdl-card__supporting-text no-padding">
+              <a class="github-button" href="https://github.com/MaterialDesignInXaml/F1inXAML" data-icon="octicon-star" data-style="mega" data-count-href="/ButchersBoy/doobry/stargazers" data-count-api="/repos/MaterialDesignInXaml/F1inXAML#stargazers_count" data-count-aria-label="# stargazers on GitHub" aria-label="Star MaterialDesignInXaml/F1inXAML on GitHub">Star
+              </a>              
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <div class="mdl-layout__tab-panel is-active" id="doobry">
       <div class="mdl-grid standard-max-width">
         
-        <div class="mdl-cell mdl-cell--12-col mdl-card mdl-shadow--4dp">
-          
+        <div class="mdl-cell mdl-cell--12-col mdl-card mdl-shadow--4dp">          
           <div class="mdl-grid standard-copy">            
             <div class="mdl-cell mdl-cell--12-col">              
               <img src="/images/doobry-256-onwhite.png" alt="doobry">              
@@ -81,7 +130,7 @@ function findSetupAsset(assets) {
                 <p>
                     It is open source, and free to use, working on Windows 7, 8 and 10.
                 </p>
-                <a class="setup-download">Download Installer</a>
+                <a class="setup-download-doobry">Download Installer</a>
             </div>            
             <div class="mdl-cell mdl-cell--6-col">
               <a href="/images/screen-query-runner.png">
@@ -92,6 +141,11 @@ function findSetupAsset(assets) {
               <a class="github-button" href="https://github.com/ButchersBoy/doobry" data-icon="octicon-star" data-style="mega" data-count-href="/ButchersBoy/doobry/stargazers" data-count-api="/repos/ButchersBoy/doobry#stargazers_count" data-count-aria-label="# stargazers on GitHub" aria-label="Star ButchersBoy/doobry on GitHub">Star
               </a>              
             </div>
+          </div>
+        </div>
+
+        <div class="mdl-cell mdl-cell--12-col mdl-card mdl-shadow--4dp">          
+          <div class="mdl-grid standard-copy">            
             <h3 class="mdl-cell mdl-cell--12-col mdl-typography--headline">Slick and Simple, but Feature Rich</h3>
             <div class="mdl-cell mdl-cell--6-col mdl-card__supporting-text no-padding">
                 <p>
@@ -133,6 +187,11 @@ function findSetupAsset(assets) {
                 <img class="article-image" src="/images/screen-side-by-side-500.png" border="0" alt="Document Editor">
               </a>
             </div>
+          </div>
+        </div>
+
+        <div class="mdl-cell mdl-cell--12-col mdl-card mdl-shadow--4dp">          
+          <div class="mdl-grid standard-copy">                    
             <h3 class="mdl-cell mdl-cell--12-col mdl-typography--headline">Open Source</h3>
             <div class="mdl-cell mdl-cell--12-col mdl-card__supporting-text no-padding">
               <p>
@@ -145,10 +204,12 @@ function findSetupAsset(assets) {
               <a class="github-button" href="https://github.com/ButchersBoy/doobry" data-icon="octicon-star" data-style="mega" data-count-href="/ButchersBoy/doobry/stargazers" data-count-api="/repos/ButchersBoy/doobry#stargazers_count" data-count-aria-label="# stargazers on GitHub" aria-label="Star ButchersBoy/doobry on GitHub">Star
               </a>
             </div>
-          </div>
+          </div>        
         </div>
+
       </div>
-    </main>
+    </div>
+
 
     </div>    
     <script src="https://code.getmdl.io/1.2.1/material.min.js"></script>
