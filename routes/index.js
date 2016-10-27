@@ -7,33 +7,47 @@ var IndexLayoutTabBar = require('../bin/components/IndexLayoutTabBar');
 var IndexLayoutTabBarFactory = React.createFactory(IndexLayoutTabBar);
 
 
+const homeTabHeader = { id:"home", content:"Home" }
+const f1TabHeader = { id:"f1ix", content:"F1ix" } 
+const doobryTabHeader = { id:"doobry", content:"doobry" }
+const tabHeaderItems = [
+		homeTabHeader,
+		f1TabHeader,
+		doobryTabHeader
+	] 
+const tabContentOptions = (ti =>
+{
+	return tabHeaderItems.map(ti => {
+		return {
+			id: ti.id,
+			partialSource: 'partials/'+ti.id+'.html',
+			delaySource: '<div>please wait for '+ti.id+'</div>'
+		} 
+	})	
+})(tabHeaderItems)
+
+
 function render(res, partialId) {
 	
-	var tabMarkup = ReactDOMServer.renderToString(IndexLayoutTabBarFactory({}));
+	var tabBarMarkup = ReactDOMServer.renderToString(IndexLayoutTabBarFactory({ items:tabHeaderItems, activeId:partialId}));
 	
 	res.render('index.ejs', 
 	{ 
-		tabMarkup : tabMarkup,
-		partialId : partialId,
-		partialSource: 'partials/'+partialId+'.html' 
+		tabBarMarkup,
+		activeTabId : partialId,
+		tabContentOptions 
 	});
 }
 
 router.get('/', function(req, res, next) {
-	render(res, "home");					
-});
+	render(res, homeTabHeader.id)					
+})
 
-router.get('/doobry', function(req, res, next) {
-	render(res, "doobry");					
-});
+tabHeaderItems.forEach(ti =>
+{
+	router.get('/'+ti.id, function(req, res, next) {
+		render(res, ti.id)
+	})			
+})
 
-/* GET home page. */
-/*
-router.get('/', function(req, res, next) {
-  	var file = __dirname + "/../views/index.html";
-	file = path.resolve(file);
-	res.sendFile(file);
-});
-*/
-
-module.exports = router;
+module.exports = router

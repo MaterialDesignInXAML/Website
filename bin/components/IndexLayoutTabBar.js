@@ -5,7 +5,7 @@ var React = require('React');
 var TabBarItem = function TabBarItem(props) {
   return React.createElement(
     "a",
-    { href: props.href, className: "mdl-layout__tab" },
+    { href: props.href, className: "mdl-layout__tab" + (props.isActive ? " is-active" : "") },
     props.content
   );
 };
@@ -17,8 +17,9 @@ var IndexLayoutTabBar = function IndexLayoutTabBar(props) {
     React.createElement(
       "div",
       { className: "mdl-tabs__tab-bar" },
-      React.createElement(TabBarItem, { href: "home", content: "Home" }),
-      React.createElement(TabBarItem, { href: "doobry", content: "doobry" })
+      props.items.map(function (item) {
+        return React.createElement(TabBarItem, { href: "#" + item.id, content: item.content, isActive: item.id == props.activeId });
+      })
     )
   );
 };
