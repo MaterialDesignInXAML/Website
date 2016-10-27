@@ -1,24 +1,32 @@
-"use strict";
+'use strict';
 
-var React = require('React');
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactDom = require('react-dom');
+
+var _reactDom2 = _interopRequireDefault(_reactDom);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var TabBarItem = function TabBarItem(props) {
-  return React.createElement(
-    "a",
+  return _react2.default.createElement(
+    'a',
     { href: props.href, className: "mdl-layout__tab" + (props.isActive ? " is-active" : "") },
     props.content
   );
 };
 
 var IndexLayoutTabBar = function IndexLayoutTabBar(props) {
-  return React.createElement(
-    "div",
+  return _react2.default.createElement(
+    'div',
     { className: "mdl-layout__tab-bar mdl-js-ripple-effect" },
-    React.createElement(
-      "div",
+    _react2.default.createElement(
+      'div',
       { className: "mdl-tabs__tab-bar" },
       props.items.map(function (item) {
-        return React.createElement(TabBarItem, { href: "#" + item.id, content: item.content, isActive: item.id == props.activeId });
+        return _react2.default.createElement(TabBarItem, { href: "#" + item.id, content: item.content, isActive: item.id == props.activeId });
       })
     )
   );

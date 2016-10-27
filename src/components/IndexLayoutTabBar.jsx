@@ -1,8 +1,12 @@
-var React = require('React')
+import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
+
 
 const TabBarItem = (props) =>
-  <a href={props.href} className=
-  {"mdl-layout__tab" + (props.isActive ? " is-active" : "") }>{props.content}</a>
+  <a href={props.href} className={"mdl-layout__tab" + (props.isActive ? " is-active" : "") }>
+    {props.content}
+    </a>
+
 
 const IndexLayoutTabBar = (props) =>
   <div className={"mdl-layout__tab-bar mdl-js-ripple-effect"}>
