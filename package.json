@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
-    "buildserver": "babel ./src/components --out-dir ./bin/components --presets react,es2015,stage-1"
+    "buildserver": "babel ./src/components --out-dir ./bin/components --presets react,es2015,stage-1",
+    "buildclient": "browserify -t [ babelify --presets [ react es2015 stage-1 ] ] ./src/clientindex.js -o ./public/js/clientbundle.js"
   },
   "dependencies": {
     "body-parser": "~1.12.0",
