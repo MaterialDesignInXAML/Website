@@ -588,5 +588,14 @@ background-color: white;
 
 img.article-image {
   width: 100%;
+  padding: 0;
   height: auto;
+}
+
+.no-background {
+  background-color: transparent
+}
+
+.no-left-padding {
+    padding-left: 0;
 }

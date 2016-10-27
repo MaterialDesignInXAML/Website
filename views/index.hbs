@@ -28,6 +28,28 @@
 <link rel="stylesheet" href="stylesheets/style.css">
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function () {
+	GetLatestReleaseInfo();
+});
+
+function GetLatestReleaseInfo() {
+	$.getJSON("https://api.github.com/repos/ButchersBoy/doobry/releases/latest").done(function (release) {		
+		var asset = findSetupAsset(release.assets);
+		var releaseInfo = release.name;
+		$(".setup-download-doobry").attr("href", asset.browser_download_url);		
+		$(".setup-download-doobry").text("Download " + releaseInfo);		
+	});
+}
+
+function findSetupAsset(assets) {
+	for (var i = 0; i < assets.length; i++) {
+		if (assets[i].name.toLowerCase() == "setup.exe")
+			return assets[i];	
+	}
+	return null;
+}
+</script>
 </head>
 <body class="mdl-demo mdl-color--grey-100 mdl-color-text--grey-700 mdl-base">
 <div class="mdl-layout mdl-layout--fixed-header mdl-js-layout">
@@ -44,15 +66,21 @@
   </header>
 
   <main class="mdl-layout__content">
-    <% for(var i=0; i<tabContentOptions.length; i++) { %>
+    {{#each tabContentOptions}}
         <div class="<%= 'mdl-layout__tab-panel' + (tabContentOptions[i].id == activeTabId ? ' is-active' : '') %>" id="<%= tabContentOptions[i].id %>">
-            <% if (tabContentOptions[i].id == activeTabId) { %>
+            {{#if (tabContentOptions[i].id == activeTabId) { %>
                 <%- include(tabContentOptions[i].partialSource); %>
             <% } else { %>
                 <%- tabContentOptions[i].delaySource %>
             <% } %>            
         </div>    
-    <% } %>          
+    {{/each}}
+
+
+
+
+
+
        
     <script src="https://code.getmdl.io/1.2.1/material.min.js"></script>
     <script async defer src="https://buttons.github.io/buttons.js"></script>    

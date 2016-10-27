@@ -5,7 +5,9 @@ var React = require('react');
 var ReactDOMServer = require('react-dom/server');
 var IndexLayoutTabBar = require('../bin/components/IndexLayoutTabBar');
 var IndexLayoutTabBarFactory = React.createFactory(IndexLayoutTabBar);
-
+//var Raw =require('../bin/components/Raw')
+//var RawFactory = React.createFactory(Raw);
+//ReactDOMServer.renderToString(RawFactory({ id: 'tab-content-'+ti.id, content:'<p>'+ti.id+' to be loaded</p>' }))
 
 const homeTabHeader = { id:"home", content:"Home" }
 const f1TabHeader = { id:"f1ix", content:"F1ix" } 
@@ -21,7 +23,7 @@ const tabContentOptions = (ti =>
 		return {
 			id: ti.id,
 			partialSource: 'partials/'+ti.id+'.html',
-			delaySource: '<div>please wait for '+ti.id+'</div>'
+			delaySource: '<div id="'+'tab-pending-'+ti.id+'"></div>'
 		} 
 	})	
 })(tabHeaderItems)

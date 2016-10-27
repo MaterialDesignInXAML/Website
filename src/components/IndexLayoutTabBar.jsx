@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 
 
 const TabBarItem = (props) =>
-  <a href={props.href} className={"mdl-layout__tab" + (props.isActive ? " is-active" : "") }>
+  <a href={props.href} data-tab-id={props.id} className={"mdl-layout__tab" + (props.isActive ? " is-active" : "") }>
     {props.content}
     </a>
 
@@ -11,7 +11,7 @@ const TabBarItem = (props) =>
 const IndexLayoutTabBar = (props) =>
   <div className={"mdl-layout__tab-bar mdl-js-ripple-effect"}>
     <div className={"mdl-tabs__tab-bar"}>
-      {props.items.map(item => <TabBarItem href={"#"+item.id} content={item.content} isActive={item.id==props.activeId} />)}
+      {props.items.map(item => <TabBarItem key={item.id} id={item.id} href={"#"+item.id} content={item.content} isActive={item.id==props.activeId} />)}
     </div>
   </div>
 

@@ -13,7 +13,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var TabBarItem = function TabBarItem(props) {
   return _react2.default.createElement(
     'a',
-    { href: props.href, className: "mdl-layout__tab" + (props.isActive ? " is-active" : "") },
+    { href: props.href, 'data-tab-id': props.id, className: "mdl-layout__tab" + (props.isActive ? " is-active" : "") },
     props.content
   );
 };
@@ -26,7 +26,7 @@ var IndexLayoutTabBar = function IndexLayoutTabBar(props) {
       'div',
       { className: "mdl-tabs__tab-bar" },
       props.items.map(function (item) {
-        return _react2.default.createElement(TabBarItem, { href: "#" + item.id, content: item.content, isActive: item.id == props.activeId });
+        return _react2.default.createElement(TabBarItem, { key: item.id, id: item.id, href: "#" + item.id, content: item.content, isActive: item.id == props.activeId });
       })
     )
   );
