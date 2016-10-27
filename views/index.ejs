@@ -62,6 +62,8 @@ function findSetupAsset(assets) {
     </div>
     <div class="mdl-layout--large-screen-only mdl-layout__header-row">    
     </div>
+    <%- tabMarkup %>
+    <!--
     <div class="mdl-layout__tab-bar mdl-js-ripple-effect">    
       <div class="mdl-tabs__tab-bar">
         <a href="#home" class="mdl-layout__tab">Material Design In XAML</a>
@@ -70,6 +72,7 @@ function findSetupAsset(assets) {
         <a href="#doobry" class="mdl-layout__tab is-active">doobry</a>
       </div>
     </div>
+    -->
   </header>
 
   <main class="mdl-layout__content">
@@ -84,6 +87,9 @@ function findSetupAsset(assets) {
         F1ix
       </div>
     </div>
+
+    
+
     <div class="mdl-layout__tab-panel is-active" id="doobry">
         <%- include(partialSource); %>
     </div>
