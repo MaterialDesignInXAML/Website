@@ -599,3 +599,7 @@ img.article-image {
 .no-left-padding {
     padding-left: 0;
 }
+
+.no-padding {
+    padding: 0;
+}
