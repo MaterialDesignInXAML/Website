@@ -1,6 +1,8 @@
 import React from 'react'
 import { render } from 'react-dom'
 import Raw from './components/Raw.jsx'
+import TabDatas from './components/TabDatas'
+import MetaMarkupRenderer from './components/MetaMarkupRenderer'
 
 window.onpopstate = function(event) {
     $('a.mdl-layout__tab').removeClass('is-active');            
@@ -8,12 +10,16 @@ window.onpopstate = function(event) {
 };
 
 function changeUrl(tabId) {
-    //TODO get title
     let title = tabId
     if (window.history && window.history.pushState) {
         var obj = { tabId: tabId };
         window.history.pushState(obj, title, tabId)
     }
+    
+    let tabData = TabDatas.select(tabId)
+    document.title = tabData.windowTitle
+    $("meta[data-dyn-meta]").remove()    
+    $("head").append(MetaMarkupRenderer(tabData))
 }
 
 function findSetupAsset(assets) {
@@ -43,7 +49,7 @@ function RefreshReleaseInfos() {
 
 function loadTab (tabId) {
 
-    changeUrl(tabId, tabId);    
+    changeUrl(tabId);    
     
     if ($("#tab-pending-" + tabId).length == 0)
         return;
