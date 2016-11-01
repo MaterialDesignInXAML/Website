@@ -9,10 +9,8 @@ const TabBarItem = (props) =>
 
 
 const IndexLayoutTabBar = (props) =>
-  <div className={"mdl-layout__tab-bar mdl-js-ripple-effect"}>
-    <div className={"mdl-tabs__tab-bar"}>
-      {props.items.map(item => <TabBarItem key={item.id} id={item.id} href={"#"+item.id} content={item.content} isActive={item.id==props.activeId} />)}
-    </div>
+  <div className={"mdl-layout__tab-bar mdl-js-ripple-effect"}>    
+    {props.items.map(item => <TabBarItem key={item.id} id={item.id} href={"#"+item.id} content={item.content} isActive={item.id==props.activeId} />)}    
   </div>
 
 module.exports = IndexLayoutTabBar

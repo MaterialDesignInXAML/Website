@@ -42,6 +42,25 @@ a img{
   }
 }
 
+.standard .mdl-layout__tab-bar-container {
+  height: 64px;
+}
+
+.standard .mdl-layout__tab {
+  height: 64px;
+  line-height: 64px;
+}
+
+.standard .mdl-layout__tab-bar .mdl-layout__tab.is-active::after {
+  background-color: white;
+  height: 4px;
+}
+
+.standard main > .mdl-layout__tab-panel {
+  padding: 8px;
+  padding-top: 48px;
+}
+
 .standard-max-width {
   max-width: 900px;
   margin: auto;
@@ -80,9 +99,13 @@ img.article-image {
 .card-alt-area  {
   color: #fff;
   background: #46B6AC;
-  padding: 16px;
+  padding: 16px;  
 }
 
 .card-alt-area > .mdl-card__supporting-text {
   color: #fff;
 } 
+
+.card-alt-area a {
+  color: #fff
+}

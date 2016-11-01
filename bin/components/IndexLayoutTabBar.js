@@ -22,13 +22,9 @@ var IndexLayoutTabBar = function IndexLayoutTabBar(props) {
   return _react2.default.createElement(
     'div',
     { className: "mdl-layout__tab-bar mdl-js-ripple-effect" },
-    _react2.default.createElement(
-      'div',
-      { className: "mdl-tabs__tab-bar" },
-      props.items.map(function (item) {
-        return _react2.default.createElement(TabBarItem, { key: item.id, id: item.id, href: "#" + item.id, content: item.content, isActive: item.id == props.activeId });
-      })
-    )
+    props.items.map(function (item) {
+      return _react2.default.createElement(TabBarItem, { key: item.id, id: item.id, href: "#" + item.id, content: item.content, isActive: item.id == props.activeId });
+    })
   );
 };
 
