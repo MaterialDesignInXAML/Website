@@ -70,10 +70,53 @@ a img{
   max-width: 700px;
 }
 
+.mdl-card .title-image {   
+  width: 128px;
+  padding: 0;
+  height: auto;
+}
+
 img.article-image {
   width: 100%;
   padding: 0;
   height: auto;
+}
+
+.header-card__header-container {
+  width: 100%;  
+  align-items : center;
+}
+
+.header-card__header-container .mdl-card__title-text {
+  color: rgba(0, 0, 0, 1);     
+  margin-bottom: 16px;
+}
+
+.header-card__supporting-text {
+    color: rgba(0, 0, 0, .54);    
+    font-size: 1rem;
+    line-height: 18px;
+    overflow: hidden;
+    padding: 16px;    
+    float: none;
+    display: block;
+}
+
+
+.header-card-title img {
+  width: auto;   
+}
+
+@media (min-width: 600px) {
+  
+  .header-card-title img {   
+    float: left;  
+  }
+}
+
+.header-card-title .mdl-card__title-text {
+  display: inline-block;
+  vertical-align: middle;  
 }
 
 .article-card > .mdl-card__supporting-text {
