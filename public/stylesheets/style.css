@@ -102,11 +102,6 @@ img.article-image {
     display: block;
 }
 
-
-.header-card-title img {
-  width: auto;   
-}
-
 @media (min-width: 600px) {
   
   .header-card-title img {   
@@ -114,9 +109,8 @@ img.article-image {
   }
 }
 
-.header-card-title .mdl-card__title-text {
-  display: inline-block;
-  vertical-align: middle;  
+.full-text { 
+  width: auto;
 }
 
 .article-card > .mdl-card__supporting-text {
