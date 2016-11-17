@@ -15,14 +15,35 @@ var all = [{
     "title": "doobry",
     "windowTitle": "doobry",
     "metas": [{ "attribs": [{ "name": "name", "value": "description" }, { "name": "content", "value": "doobry, the NoSQL Editor for DocumentDb" }] }, { "attribs": [{ "name": "name", "value": "keywords" }, { "name": "content", "value": "doobry, azure, documentdb, sql, nosql, database, document" }] }, { "attribs": [{ "name": "itemprop", "value": "name" }, { "name": "content", "value": "doobry" }] }, { "attribs": [{ "name": "itemprop", "value": "description" }, { "name": "content", "value": "doobry, the NoSQL Editor for DocumentDb" }] }, { "attribs": [{ "name": "itemprop", "value": "image" }, { "name": "content", "value": "http://materialdesigninxaml.net/images/doobry-512-onwhite.png" }] }, { "attribs": [{ "name": "name", "value": "twitter:card" }, { "name": "content", "value": "summary" }] }, { "attribs": [{ "name": "name", "value": "twitter:site" }, { "name": "content", "value": "@james_willock" }] }, { "attribs": [{ "name": "name", "value": "twitter:title" }, { "name": "content", "value": "doobry" }] }, { "attribs": [{ "name": "name", "value": "twitter:description" }, { "name": "content", "value": "doobry, the NoSQL Editor for DocumentDb" }] }, { "attribs": [{ "name": "name", "value": "twitter:creator" }, { "name": "content", "value": "@james_willock" }] }, { "attribs": [{ "name": "name", "value": "twitter:image:src" }, { "name": "content", "value": "http://materialdesigninxaml.net/images/doobry-icon-256.png" }] }, { "attribs": [{ "name": "property", "value": "og:title" }, { "name": "content", "value": "doobry" }] }, { "attribs": [{ "name": "property", "value": "og:type" }, { "name": "content", "value": "article" }] }, { "attribs": [{ "name": "property", "value": "og:url" }, { "name": "content", "value": "http://materialdesigninxaml.net/doobry" }] }, { "attribs": [{ "name": "property", "value": "og:image" }, { "name": "content", "value": "http://materialdesigninxaml.net/images/doobry-icon-256.png" }] }, { "attribs": [{ "name": "property", "value": "og:description" }, { "name": "content", "value": "doobry, the NoSQL Editor for DocumentDb" }] }, { "attribs": [{ "name": "property", "value": "og:site_name" }, { "name": "content", "value": "doobry" }] }]
+}, {
+    "id": "testimonials",
+    "title": "Testimonials",
+    "windowTitle": "Material Design In XAML - Testimonials",
+    "basedOn": "home"
 }];
 
-var select = function select(tabId) {
+function merge(tabData, baseTabData) {
+    return {
+        "id": tabData.id,
+        "title": tabData.title,
+        "windowTitle": tabData.windowTitle,
+        "metas": baseTabData.metas
+    };
+}
+
+function selectInternal(tabId) {
     for (var index = 0; index < all.length; index++) {
         var element = all[index];
-        if (element.id == tabId) return element;
+        if (element.id == tabId) {
+            return element;
+        }
     }
     throw "Unknown tab " + tabId;
+}
+
+var select = function select(tabId) {
+    var tab = selectInternal(tabId);
+    return tab.basedOn ? merge(tab, selectInternal(tab.basedOn)) : tab;
 };
 
 module.exports = { all: all, select: select };

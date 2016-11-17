@@ -70,15 +70,37 @@ const all = [
             {"attribs": [{"name":"property", "value":"og:description"},{"name":"content", "value":"doobry, the NoSQL Editor for DocumentDb"}]},
             {"attribs": [{"name":"property", "value":"og:site_name"},{"name":"content", "value":"doobry"}]}
         ]
+    },
+    {
+        "id": "testimonials",
+        "title": "Testimonials",
+        "windowTitle": "Material Design In XAML - Testimonials",
+        "basedOn": "home"
     }
 ]
 
-const select = function(tabId) {
+function merge(tabData, baseTabData) {
+    return {
+        "id": tabData.id,
+        "title": tabData.title,
+        "windowTitle": tabData.windowTitle,
+        "metas": baseTabData.metas
+    }
+}
+
+function selectInternal(tabId) {
     for (let index = 0; index < all.length; index++) {
         var element = all[index]
-        if (element.id == tabId) return element        
+        if (element.id == tabId) {
+            return element
+        }        
     }
     throw "Unknown tab " + tabId
+}
+
+const select = function(tabId) {
+    var tab = selectInternal(tabId)
+    return (tab.basedOn) ? merge(tab, selectInternal(tab.basedOn)) : tab
 }
 
 module.exports = { all, select }

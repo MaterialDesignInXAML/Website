@@ -146,3 +146,11 @@ img.article-image {
 .card-alt-area a {
   color: #fff
 }
+
+.quote-details-wrapper { display: table-row; }
+.quote-details-picture {
+  display: table-cell; 
+  vertical-align: top; 
+  margin-left: 16px;
+}
+.quote-details { display: table-cell; vertical-align: bottom; }
