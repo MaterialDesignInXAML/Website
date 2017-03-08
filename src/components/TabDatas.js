@@ -26,7 +26,7 @@ const all = [
     {
         "id": "news",
         "title": "News",
-        "windowTitle": "News",
+        "windowTitle": "News - Material Design In XAML",
         "metas": [
             {"attribs": [{"name":"name", "value":"description"},{"name":"content", "value":"Material Design In XAML Toolkit - News"}]},    
             {"attribs": [{"name":"name", "value":"keywords"},{"name":"content", "value":"material design, xaml, ui, ux, xaml, net, windows, design, news"}]},    
