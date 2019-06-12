@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="theme-color" content="#3F51B5">
+
+    <title>Material Design In XAML</title>
+    <meta name="description" content="Welcome the one of the most comphrensive and easy to use Material Design UI library across any platform.">
+
+    <link rel="shortcut icon" href="favicon.ico">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-components-web/2.3.0/material-components-web.min.css" integrity="sha256-UMGcubpjEU+onPQm1p5+pJ3EeXD+qIvDcAFZNMls68g=" crossorigin="anonymous" />
+
+    <style>
+        body {
+            --mdc-theme-primary: #3f51b5;
+            --mdc-theme-secondary: #f44336;
+            background-color: #fafafa;
+        }
+
+        body .tab[aria-hidden="true"] {
+            display: none;
+        }
+
+        body .tab {
+            padding: 2rem;
+        }
+
+        body .tab[data-tab-name="news"] li {
+            margin-left: 6.5rem;
+        }
+
+        body .mdc-card .mdc-card__primary {
+            padding-left: 1.25rem;
+            padding-right: 1.25rem;
+        }
+
+        body .mdc-card .mdc-card__secondary {
+            color: rgba(0, 0, 0, 0.54);
+            color: var(--mdc-theme-text-secondary-on-background, rgba(0, 0, 0, 0.54));
+            padding-left: 1.25rem;
+            padding-right: 1.25rem;
+            padding-bottom: 1.25rem;
+        }
+
+        body .wrap-image {
+            height: 8rem;
+            float: left;
+        }
+
+        body .no-side-pad {
+            padding-left: 0;
+            padding-right: 0;
+        }
+
+        body .no-up-pad {
+            padding-top: 0;
+        }
+
+        body .right-pad {
+            padding-right: 1rem;
+        }
+
+        body img {
+            max-width: 100%;
+        }
+
+        body a {
+            color: var(--mdc-theme-primary, #6200ee);
+        }
+
+        body::-moz-selection {
+            background-color: var(--mdc-theme-primary, #6200ee);
+            color: white;
+        }
+
+        body::selection {
+            background-color: var(--mdc-theme-primary, #6200ee);
+            color: white;
+        }
+
+        body #carbonads {
+            float: left;
+            border-radius: 6px;
+            font-family: Roboto, sans-serif;
+            line-height: 28px;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+
+        @media only screen and (max-width: 425px) {
+            body #carbonads {
+                width: 100%;
+            }
+        }
+
+        body #carbonads .carbon-wrap .carbon-img>img {
+            margin-right: 9px;
+            float: left;
+            height: 80px;
+            width: auto;
+        }
+
+        @media only screen and (max-width: 400px) {
+            body #carbonads .carbon-wrap .carbon-img>img {
+                width: auto;
+                max-width: 130px;
+                height: 50px;
+            }
+        }
+
+        body #carbonads .carbon-wrap .carbon-text {
+            color: #637381;
+            font-weight: 300;
+            display: block;
+            font-size: 12px;
+            line-height: 15.96px;
+            margin-bottom: 0;
+            margin-top: 8px;
+            text-decoration: none;
+        }
+
+        body #carbonads .carbon-poweredby {
+            color: #c5cdd0;
+            font-size: 8px;
+            font-weight: 500;
+            line-height: 10px;
+            text-transform: uppercase;
+            text-decoration: none;
+        }
+
+        body .full-width {
+            width: 100%;
+        }
+
+        body::-webkit-scrollbar,
+        body .prettyprint::-webkit-scrollbar {
+            border-radius: 100px;
+            background-color: transparent;
+            width: 8px;
+            height: 8px;
+        }
+
+        body::-webkit-scrollbar-button,
+        body .prettyprint::-webkit-scrollbar-button {
+            height: 0;
+            width: 0;
+        }
+
+        body::-webkit-scrollbar-corner,
+        body .prettyprint::-webkit-scrollbar-corner {
+            background-color: transparent;
+        }
+
+        body::-webkit-scrollbar-thumb,
+        body .prettyprint::-webkit-scrollbar-thumb {
+            border-radius: 100px;
+            background-color: rgba(0, 0, 0, 0.2);
+            min-height: 28px;
+        }
+
+        body::-webkit-scrollbar-thumb:hover,
+        body .prettyprint::-webkit-scrollbar-thumb:hover {
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+
+        body::-webkit-scrollbar-thumb:active,
+        body .prettyprint::-webkit-scrollbar-thumb:active {
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        body::-webkit-scrollbar-track,
+        body .prettyprint::-webkit-scrollbar-track {
+            background-clip: padding-box;
+            border-width: 0 0 0 4px;
+        }
+    </style>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Richienb/code-prettify-material-theme@53cbad14f18466225fe1e918e4ec547114ca017c/material.min.css" integrity="sha384-8nNmhJekYI7Bwpp1dpVUpdvBFP0MMhId5+TJI0iTiBhvIpUU4jxlcETZllxQc4ze"
+        crossorigin="anonymous">
+
+</head>
+
+<body>
+    <header class="mdc-top-app-bar" data-mdc-auto-init="MDCTopAppBar">
+        <div class="mdc-top-app-bar__row">
+            <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
+                <span class="mdc-top-app-bar__title">Material Design In XAML</span>
+            </section>
+        </div>
+    </header>
+    <div class="mdc-top-app-bar--fixed-adjust"></div>
+    <nav class="mdc-tab-bar" role="tablist" data-mdc-auto-init="MDCTabBar">
+        <div class="mdc-tab-scroller">
+            <div class="mdc-tab-scroller__scroll-area">
+                <div class="mdc-tab-scroller__scroll-content">
+                    <button class="mdc-tab mdc-tab--active" data-tab-open="home" role="tab" aria-selected="true" tabindex="0">
+                        <span class="mdc-tab__content">
+                            <svg class="mdc-tab__icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                <path fill="none" d="M0 0h24v24H0V0z" />
+                                <path d="M12 5.69l5 4.5V18h-2v-6H9v6H7v-7.81l5-4.5M12 3L2 12h3v8h6v-6h2v6h6v-8h3L12 3z" /></svg>
+                            <span class="mdc-tab__text-label">HOME</span>
+                        </span>
+                        <span class="mdc-tab-indicator mdc-tab-indicator--active">
+                            <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"></span>
+                        </span>
+                        <span class="mdc-tab__ripple"></span>
+                    </button>
+                    <button class="mdc-tab" data-tab-open="news" role="tab" aria-selected="false" tabindex="-1">
+                        <span class="mdc-tab__content">
+                            <svg class="mdc-tab__icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                <path d="M20,11H4V8H20M20,15H13V13H20M20,19H13V17H20M11,19H4V13H11M20.33,4.67L18.67,3L17,4.67L15.33,3L13.67,4.67L12,3L10.33,4.67L8.67,3L7,4.67L5.33,3L3.67,4.67L2,3V19A2,2 0 0,0 4,21H20A2,2 0 0,0 22,19V3L20.33,4.67Z" />
+                            </svg>
+                            <span class="mdc-tab__text-label">NEWS</span>
+                        </span>
+                        <span class="mdc-tab-indicator">
+                            <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"></span>
+                        </span>
+                        <span class="mdc-tab__ripple"></span>
+                    </button>
+                    <button class="mdc-tab" data-tab-open="f1ix" role="tab" aria-selected="false" tabindex="-1">
+                        <span class="mdc-tab__content">
+
+                            <svg class="mdc-tab__icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                <path fill="none" d="M0 0h24v24H0V0z" />
+                                <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14zm-7-2h2V7h-4v2h2z" /></svg>
+                            <span class="mdc-tab__text-label">F1IX</span>
+                        </span>
+                        <span class="mdc-tab-indicator">
+                            <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"></span>
+                        </span>
+                        <span class="mdc-tab__ripple"></span>
+                    </button>
+                    <button class="mdc-tab" data-tab-open="doobry" role="tab" aria-selected="false" tabindex="-1">
+                        <span class="mdc-tab__content">
+
+                            <svg class="mdc-tab__icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                <path fill="none" d="M0 0h24v24H0V0z" />
+                                <path
+                                    d="M12 6.5c3.79 0 7.17 2.13 8.82 5.5-1.65 3.37-5.02 5.5-8.82 5.5S4.83 15.37 3.18 12C4.83 8.63 8.21 6.5 12 6.5m0-2C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zm0 5c1.38 0 2.5 1.12 2.5 2.5s-1.12 2.5-2.5 2.5-2.5-1.12-2.5-2.5 1.12-2.5 2.5-2.5m0-2c-2.48 0-4.5 2.02-4.5 4.5s2.02 4.5 4.5 4.5 4.5-2.02 4.5-4.5-2.02-4.5-4.5-4.5z" />
+                            </svg>
+                            <span class="mdc-tab__text-label">DOOBRY</span>
+                        </span>
+                        <span class="mdc-tab-indicator">
+                            <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"></span>
+                        </span>
+                        <span class="mdc-tab__ripple"></span>
+                    </button>
+                    <button class="mdc-tab" data-tab-open="testimonials" role="tab" aria-selected="false" tabindex="-1">
+                        <span class="mdc-tab__content">
+
+                            <svg class="mdc-tab__icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                <path fill="none" d="M0 0h24v24H0V0z" />
+                                <path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H5.17l-.59.59-.58.58V4h16v12zM6 12h2v2H6zm0-3h2v2H6zm0-3h2v2H6zm4 6h5v2h-5zm0-3h8v2h-8zm0-3h8v2h-8z" /></svg>
+                            <span class="mdc-tab__text-label">TESTIMONIALS</span>
+                        </span>
+                        <span class="mdc-tab-indicator">
+                            <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"></span>
+                        </span>
+                        <span class="mdc-tab__ripple"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <main class="tab" data-tab-name="home" aria-hidden="false">
+        <div class="mdc-card full-width">
+            <div class="mdc-card__primary">
+                <h2 class="mdc-card__title mdc-typography--headline6">Material Design In XAML Toolkit</h2>
+            </div>
+            <div class="mdc-card__secondary mdc-typography--body2"><img class="wrap-image" src="images/MD4XAML.png" alt="XAML">Welcome the one of the most comphrensive and easy to use Material Design UI library across
+                any platform.
+                <br>
+                <br> With Material Design In XAML Toolkit you can easily bring beautiful desktop applications to life, using a modern and popular design language.
+                <br>
+                <br> This project is fully open source and one of the most popular GUI libraries for WPF. This library is also compatible with MahApps and Dragablz.
+            </div>
+            <div class="mdc-card__actions">
+                <div class="mdc-card__action-buttons">
+                    <a target="_blank" rel="noopener" href="https://github.com/MaterialDesignInXAML/MaterialDesignInXamlToolkit" class="mdc-button mdc-card__action mdc-card__action--button" data-mdc-auto-init="MDCRipple">
+                        <svg class="mdc-button__icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                            <path
+                                d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
+                        </svg><span class="mdc-button__label">GitHub</span></a>
+                    <a target="_blank" rel="noopener" href="https://gitter.im/ButchersBoy/MaterialDesignInXamlToolkit" class="mdc-button mdc-card__action mdc-card__action--button" data-mdc-auto-init="MDCRipple">
+                        <svg class="mdc-button__icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                            <path d="M8.501 4.001H10.5V24H8.501V4.001zm6.999 0V24h-2V4.001h2zM3.5 0h2.001v15H3.5V0zm15 4.001h2V15h-2V4.001z" />
+                        </svg><span class="mdc-button__label">Gitter</span></a>
+                    <a target="_blank" rel="noopener" href="https://www.nuget.org/packages/MaterialDesignThemes" class="mdc-button mdc-card__action mdc-card__action--button" data-mdc-auto-init="MDCRipple">
+                        <svg class="mdc-button__icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                            <path
+                                d="M17.67 21.633a3.995 3.995 0 1 1 0-7.99 3.995 3.995 0 0 1 0 7.99m-7.969-9.157a2.497 2.497 0 1 1 0-4.994 2.497 2.497 0 0 1 0 4.994m8.145-7.795h-6.667a6.156 6.156 0 0 0-6.154 6.155v6.667a6.154 6.154 0 0 0 6.154 6.154h6.667A6.154 6.154 0 0 0 24 17.503v-6.667a6.155 6.155 0 0 0-6.154-6.155M3.995 2.339a1.998 1.998 0 1 1-3.996 0 1.998 1.998 0 0 1 3.996 0" />
+                        </svg><span class="mdc-button__label">NuGet</span></a>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="mdc-card full-width">
+
+            <div class="mdc-card__primary">
+
+                <h2 class="mdc-card__title mdc-typography--headline6">Features</h2>
+            </div>
+            <div class="mdc-card__secondary mdc-typography--body2">
+                <ul class="mdc-list">
+                    <li class="mdc-list-item" tabindex="0" data-mdc-auto-init="MDCRipple">
+                        <svg class="mdc-list-item__graphic" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                            <path fill="none" d="M0 0h24v24H0V0z" />
+                            <path
+                                d="M12 22C6.49 22 2 17.51 2 12S6.49 2 12 2s10 4.04 10 9c0 3.31-2.69 6-6 6h-1.77c-.28 0-.5.22-.5.5 0 .12.05.23.13.33.41.47.64 1.06.64 1.67 0 1.38-1.12 2.5-2.5 2.5zm0-18c-4.41 0-8 3.59-8 8s3.59 8 8 8c.28 0 .5-.22.5-.5 0-.16-.08-.28-.14-.35-.41-.46-.63-1.05-.63-1.65 0-1.38 1.12-2.5 2.5-2.5H16c2.21 0 4-1.79 4-4 0-3.86-3.59-7-8-7z" />
+                            <circle cx="6.5" cy="11.5" r="1.5" />
+                            <circle cx="9.5" cy="7.5" r="1.5" />
+                            <circle cx="14.5" cy="7.5" r="1.5" />
+                            <circle cx="17.5" cy="11.5" r="1.5" />
+                        </svg>
+                        <span class="mdc-list-item__text">Styles and variations for the majority of standard WPF controls.</span>
+                    </li>
+                    <li class="mdc-list-item" data-mdc-auto-init="MDCRipple">
+                        <svg class="mdc-list-item__graphic" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                            <path fill="none" d="M0 0h24v24H0V0z" />
+                            <path d="M13 7h-2v4H7v2h4v4h2v-4h4v-2h-4V7zm-1-5C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z" />
+                        </svg>
+                        <span class="mdc-list-item__text">Many more additional controls to support the Material Design aesthetic and flow.
+                        </span>
+                    </li>
+                    <li class="mdc-list-item" data-mdc-auto-init="MDCRipple">
+                        <svg class="mdc-list-item__graphic" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                            <path fill="none" d="M0 0h24v24H0V0z" />
+                            <path d="M18 4V3c0-.55-.45-1-1-1H5c-.55 0-1 .45-1 1v4c0 .55.45 1 1 1h12c.55 0 1-.45 1-1V6h1v4H9v11c0 .55.45 1 1 1h2c.55 0 1-.45 1-1v-9h8V4h-3zm-2 2H6V4h10v2z" />
+                        </svg>
+                        <span class="mdc-list-item__text">Easy configuration of Material Design Colour palettes at both design and run time.</span>
+                    </li>
+                    <li class="mdc-list-item" data-mdc-auto-init="MDCRipple">
+                        <svg class="mdc-list-item__graphic" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                            <path fill="none" d="M0 0h24v24H0V0z" />
+                            <path
+                                d="M19.43 12.98c.04-.32.07-.64.07-.98 0-.34-.03-.66-.07-.98l2.11-1.65c.19-.15.24-.42.12-.64l-2-3.46c-.09-.16-.26-.25-.44-.25-.06 0-.12.01-.17.03l-2.49 1c-.52-.4-1.08-.73-1.69-.98l-.38-2.65C14.46 2.18 14.25 2 14 2h-4c-.25 0-.46.18-.49.42l-.38 2.65c-.61.25-1.17.59-1.69.98l-2.49-1c-.06-.02-.12-.03-.18-.03-.17 0-.34.09-.43.25l-2 3.46c-.13.22-.07.49.12.64l2.11 1.65c-.04.32-.07.65-.07.98 0 .33.03.66.07.98l-2.11 1.65c-.19.15-.24.42-.12.64l2 3.46c.09.16.26.25.44.25.06 0 .12-.01.17-.03l2.49-1c.52.4 1.08.73 1.69.98l.38 2.65c.03.24.24.42.49.42h4c.25 0 .46-.18.49-.42l.38-2.65c.61-.25 1.17-.59 1.69-.98l2.49 1c.06.02.12.03.18.03.17 0 .34-.09.43-.25l2-3.46c.12-.22.07-.49-.12-.64l-2.11-1.65zm-1.98-1.71c.04.31.05.52.05.73 0 .21-.02.43-.05.73l-.14 1.13.89.7 1.08.84-.7 1.21-1.27-.51-1.04-.42-.9.68c-.43.32-.84.56-1.25.73l-1.06.43-.16 1.13-.2 1.35h-1.4l-.19-1.35-.16-1.13-1.06-.43c-.43-.18-.83-.41-1.23-.71l-.91-.7-1.06.43-1.27.51-.7-1.21 1.08-.84.89-.7-.14-1.13c-.03-.31-.05-.54-.05-.74s.02-.43.05-.73l.14-1.13-.89-.7-1.08-.84.7-1.21 1.27.51 1.04.42.9-.68c.43-.32.84-.56 1.25-.73l1.06-.43.16-1.13.2-1.35h1.39l.19 1.35.16 1.13 1.06.43c.43.18.83.41 1.23.71l.91.7 1.06-.43 1.27-.51.7 1.21-1.07.85-.89.7.14 1.13zM12 8c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4zm0 6c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z" />
+                        </svg>
+                        <span class="mdc-list-item__text">Transitions API for easy build GUI animations.</span>
+                    </li>
+                    <li class="mdc-list-item" data-mdc-auto-init="MDCRipple">
+                        <svg class="mdc-list-item__graphic" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                            <path fill="none" d="M0 0h24v24H0V0z" />
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm4.59-12.42L10 14.17l-2.59-2.58L6 13l4 4 8-8z" />
+                        </svg>
+                        <span class="mdc-list-item__text">Works stand-alone, and also compatible with other popular WPF frameworks, MahApps and Dragablz.
+                        </span>
+                    </li>
+                    <li class="mdc-list-item" data-mdc-auto-init="MDCRipple">
+                        <svg class="mdc-list-item__graphic" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                            <path
+                                d="M22,13.5C22,15.26 20.7,16.72 19,16.96V20A2,2 0 0,1 17,22H13.2V21.7A2.7,2.7 0 0,0 10.5,19C9,19 7.8,20.21 7.8,21.7V22H4A2,2 0 0,1 2,20V16.2H2.3C3.79,16.2 5,15 5,13.5C5,12 3.79,10.8 2.3,10.8H2V7A2,2 0 0,1 4,5H7.04C7.28,3.3 8.74,2 10.5,2C12.26,2 13.72,3.3 13.96,5H17A2,2 0 0,1 19,7V10.04C20.7,10.28 22,11.74 22,13.5M17,15H18.5A1.5,1.5 0 0,0 20,13.5A1.5,1.5 0 0,0 18.5,12H17V7H12V5.5A1.5,1.5 0 0,0 10.5,4A1.5,1.5 0 0,0 9,5.5V7H4V9.12C5.76,9.8 7,11.5 7,13.5C7,15.5 5.75,17.2 4,17.88V20H6.12C6.8,18.25 8.5,17 10.5,17C12.5,17 14.2,18.25 14.88,20H17V15Z" />
+                        </svg>
+                        <span class="mdc-list-item__text">MVVM framework agnostic.
+                        </span>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+        <div class="mdc-layout-grid no-side-pad">
+            <div class="mdc-layout-grid__inner">
+                <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-7">
+                    <div class="mdc-card full-width">
+
+                        <div class="mdc-card__media mdc-card__media--16-9 demo-card__media" style="background-image: url(&quot;images/demo-buttons.png&quot;);"></div>
+
+                        <div class="mdc-card__primary">
+
+                            <h2 class="mdc-card__title mdc-typography--headline6">Standard WPF Control Styles</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-5">
+                    <div class="mdc-card full-width">
+
+                        <div class="mdc-card__media mdc-card__media--16-9 demo-card__media" style="background-image: url(&quot;images/demo-clock-207-373.png&quot;);"></div>
+
+                        <div class="mdc-card__primary">
+
+                            <h2 class="mdc-card__title mdc-typography--headline6">Material Design Specific Controls</h2>
+                        </div>
+                        <div class="mdc-card__secondary mdc-typography--body2">
+                            In addition to standard control themes the kit contains new controls to help deliver a full Material Design experience, including: clocks, drawers, dialogs, floating action buttons, chips, and more.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="mdc-layout-grid no-side-pad no-up-pad">
+            <div class="mdc-layout-grid__inner">
+                <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4">
+                    <div class="mdc-card full-width">
+
+                        <div class="mdc-card__media mdc-card__media--16-9 demo-card__media" style="background-image: url(&quot;images/demo-home-512-373.png&quot;);"></div>
+
+                        <div class="mdc-card__primary">
+
+                            <h2 class="mdc-card__title mdc-typography--headline6">Demo &#x26; Source</h2>
+                        </div>
+                        <div class="mdc-card__secondary mdc-typography--body2">
+                            Two demos are included in the source code, which can be downloaded from GitHub and run with VS2015 and above.
+                        </div>
+                    </div>
+                </div>
+                <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4">
+                    <div class="mdc-card full-width">
+
+                        <div class="mdc-card__media mdc-card__media--16-9 demo-card__media" style="background-image: url(&quot;images/f1ix-ss-1.png&quot;);"></div>
+
+                        <div class="mdc-card__primary">
+
+                            <h2 class="mdc-card__title mdc-typography--headline6">Showcase: F1ix
+                            </h2>
+                        </div>
+                        <div class="mdc-card__secondary mdc-typography--body2">
+                            F1ix uses the Transitions API to bring alive various statistics about Formula 1 racing.
+                        </div>
+                    </div>
+                </div>
+                <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4">
+                    <div class="mdc-card full-width">
+
+                        <div class="mdc-card__media mdc-card__media--16-9 demo-card__media" style="background-image: url(&quot;images/screen-query-runner-500.png&quot;);"></div>
+
+                        <div class="mdc-card__primary">
+
+                            <h2 class="mdc-card__title mdc-typography--headline6">Showcase: Doobry</h2>
+                        </div>
+                        <div class="mdc-card__secondary mdc-typography--body2">
+                            doobry, a SQL editor for Azure's DocumentDb NoSQL database utilises the toolkit to produce a fluid, bold, and engaging interface.
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="mdc-card full-width">
+
+            <div class="mdc-card__primary">
+
+                <h2 class="mdc-card__title mdc-typography--headline6">Getting Started</h2>
+            </div>
+            <div class="mdc-card__secondary mdc-typography--body2">Getting started bringing Material Design to your WPF apps takes minutes, follow this guide and dive in, and if you want, join our community. This is our "super quick start" guide. A
+                more comprehensive getting started guide can be found on our Wiki, and we highly recommend you download and run the demo application contained within the source code. Start a new project, and install from NuGet. From the Package
+                Manager Console in Visual Studio type:
+
+                <pre class="prettyprint">PM> Install-Package MaterialDesignThemes</pre> Edit your App.xaml as follows:
+
+                <pre class="prettyprint">
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;Application . . .&gt;
+  &lt;Application.Resources&gt;
+    &lt;ResourceDictionary&gt;
+      &lt;ResourceDictionary.MergedDictionaries&gt;
+        &lt;ResourceDictionary Source=&quot;pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Light.xaml&quot; /&gt;
+        &lt;ResourceDictionary Source=&quot;pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml&quot; /&gt;
+        &lt;ResourceDictionary Source=&quot;pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.DeepPurple.xaml&quot; /&gt;
+        &lt;ResourceDictionary Source=&quot;pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.Lime.xaml&quot; /&gt;
+      &lt;/ResourceDictionary.MergedDictionaries&gt;
+    &lt;/ResourceDictionary&gt;
+  &lt;/Application.Resources&gt;
+&lt;/Application&gt;
+</pre> Edit MainWindow.xaml to following:
+
+                <pre class="prettyprint">
+&lt;Window . . .
+     xmlns:materialDesign=&quot;http://materialdesigninxaml.net/winfx/xaml/themes&quot;
+     TextElement.Foreground=&quot;{DynamicResource MaterialDesignBody}&quot;
+     TextElement.FontWeight=&quot;Regular&quot;
+     TextElement.FontSize=&quot;13&quot;
+     TextOptions.TextFormattingMode=&quot;Ideal&quot;
+     TextOptions.TextRenderingMode=&quot;Auto&quot;
+     Background=&quot;{DynamicResource MaterialDesignPaper}&quot;
+     FontFamily=&quot;{DynamicResource MaterialDesignFont}&quot;&gt;
+  &lt;Grid&gt;
+    &lt;materialDesign:Card Padding=&quot;32&quot; Margin=&quot;16&quot;&gt;
+      &lt;TextBlock Style=&quot;{DynamicResource MaterialDesignTitleTextBlock}&quot;&gt;My First Material Design App&lt;/TextBlock&gt;
+    &lt;/materialDesign:Card&gt;
+  &lt;/Grid&gt;
+&lt;/Window&gt;
+</pre> Hit F5, viola!
+                <br>
+                <br>
+                <img src="https://raw.githubusercontent.com/ButchersBoy/MaterialDesignInXamlToolkit/master/web/images/wikiscreen-quickstart.png" alt="Quickstart example">
+            </div>
+        </div>
+        <br>
+        <div class="mdc-card full-width">
+
+            <div class="mdc-card__primary">
+
+                <h2 class="mdc-card__title mdc-typography--headline6">What next?</h2>
+            </div>
+            <div class="mdc-card__secondary mdc-typography--body2">There's several things you will want to think about; your palette, the structure of your UI, and what additional features can Material Design in XAML Toolkit bring to your
+                application?
+                <br>
+                <br> There's plenty to explore to get your creativity in gear. We strongly suggest you download the demo and have an explore around all the things on offer; new styles, controls, transitions, dialogs and more. It's also worth checking
+                out some of the articles on the Wiki.
+                <br>
+                <br> Lastly, you can join the Gitter chantroom; stop by, say hello, and ask for help....everyone is welcome!
+                <br>
+                <br> To download the source and included demo, visit <a target="_blank" rel="noopener" href="https://github.com/MaterialDesignInXAML/MaterialDesignInXamlToolkit">GitHub</a>.
+                <br> To chat visit <a target="_blank" rel="noopener" href="https://gitter.im/ButchersBoy/MaterialDesignInXamlToolkit">Gitter</a>.
+            </div>
+        </div>
+        <br>
+        <div class="mdc-card full-width">
+
+            <div class="mdc-card__primary">
+
+                <h2 class="mdc-card__title mdc-typography--headline6">Website credit</h2>
+            </div>
+            <div class="mdc-card__secondary mdc-typography--body2">Website redesign by <a target="_blank" rel="noopener" href="https://richienb.github.io">Richie Bendall</a>.
+
+            </div>
+            <script async src="https://cdn.carbonads.com/carbon.js?serve=CK7I6K3E&amp;placement=wwwrichie-bendallml" id="_carbonads_js"></script>
+        </div>
+    </main>
+    <main class="tab" data-tab-name="news" aria-hidden="true">
+        <div role="progressbar" class="news__progress mdc-linear-progress mdc-linear-progress--indeterminate" data-mdc-auto-init="MDCLinearProgress">
+            <div class="mdc-linear-progress__buffering-dots"></div>
+            <div class="mdc-linear-progress__buffer"></div>
+            <div class="mdc-linear-progress__bar mdc-linear-progress__primary-bar">
+                <span class="mdc-linear-progress__bar-inner"></span>
+            </div>
+            <div class="mdc-linear-progress__bar mdc-linear-progress__secondary-bar">
+                <span class="mdc-linear-progress__bar-inner"></span>
+            </div>
+        </div>
+    </main>
+    <main class="tab" data-tab-name="f1ix" aria-hidden="true">
+        <div class="mdc-card full-width">
+            <div class="mdc-card__primary">
+                <h2 class="mdc-card__title mdc-typography--headline6">F1ix - Formula app 1 for Windows</h2>
+            </div>
+            <div class="mdc-card__secondary mdc-typography--body2"><img class="wrap-image right-pad" src="images/f1ix-150x150.png" alt="F1ix">F1ix is a free Formula 1 results and stats app for Windows
+                <br>
+                <br> Works on Windows 7, 8 and 10, just download the installer, install once and the application will automatically keep itself updated.
+                <br>
+                <br> Provides results, standings, calendar, fastest laps etc.
+            </div>
+            <div class="mdc-card__actions">
+                <div class="mdc-card__action-buttons">
+                    <a target="_blank" rel="noopener" href="https://github.com/MaterialDesignInXAML/F1InXAML/releases" class="mdc-button mdc-card__action mdc-card__action--button f1ix__download" data-mdc-auto-init="MDCRipple">
+                        <svg class="mdc-button__icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                            <path d="M13,5V11H14.17L12,13.17L9.83,11H11V5H13M15,3H9V9H5L12,16L19,9H15V3M19,18H5V20H19V18Z" />
+                        </svg><span class="mdc-button__label">Download</span></a>
+                    <a target="_blank" rel="noopener" href="https://github.com/MaterialDesignInXAML/F1InXAML" class="mdc-button mdc-card__action mdc-card__action--button" data-mdc-auto-init="MDCRipple">
+                        <svg class="mdc-button__icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                            <path
+                                d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
+                        </svg><span class="mdc-button__label">GitHub</span></a>
+                </div>
+            </div>
+        </div>
+        <div class="mdc-layout-grid no-side-pad">
+            <div class="mdc-layout-grid__inner">
+                <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4">
+                    <div class="mdc-card full-width">
+                        <div class="mdc-card__media mdc-card__media--16-9 demo-card__media" style="background-image: url(&quot;images/f1ix-ss-1.png&quot;);"></div>
+                    </div>
+                </div>
+                <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4">
+                    <div class="mdc-card full-width">
+
+                        <div class="mdc-card__media mdc-card__media--16-9 demo-card__media" style="background-image: url(&quot;images/f1ix-ss-2.png&quot;);"></div>
+                    </div>
+                </div>
+                <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4">
+                    <div class="mdc-card full-width">
+
+                        <div class="mdc-card__media mdc-card__media--16-9 demo-card__media" style="background-image: url(&quot;images/f1ix-ss-3.png&quot;);"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <main class="tab" data-tab-name="doobry" aria-hidden="true">
+        <div class="mdc-card full-width">
+            <div class="mdc-card__primary">
+                <h2 class="mdc-card__title mdc-typography--headline6">Doobry - The SQL editor for Azure DocumentDb</h2>
+            </div>
+            <div class="mdc-card__secondary mdc-typography--body2"><img class="wrap-image right-pad" src="images/doobry-256-onwhite.png" alt="Doobry">doobry is a NoSQL development and administration tool for Azure
+                DocumentDb.
+                <br>
+                <br> It is open source, and free to use, working on Windows 7, 8 and 10.
+            </div>
+            <div class="mdc-card__actions">
+                <div class="mdc-card__action-buttons">
+                    <a target="_blank" rel="noopener" href="https://github.com/ButchersBoy/doobry/releases" class="mdc-button mdc-card__action mdc-card__action--button doobry__download" data-mdc-auto-init="MDCRipple">
+                        <svg class="mdc-button__icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                            <path d="M13,5V11H14.17L12,13.17L9.83,11H11V5H13M15,3H9V9H5L12,16L19,9H15V3M19,18H5V20H19V18Z" />
+                        </svg><span class="mdc-button__label">Download</span></a>
+                    <a target="_blank" rel="noopener" href="https://github.com/ButchersBoy/doobry" class="mdc-button mdc-card__action mdc-card__action--button" data-mdc-auto-init="MDCRipple">
+                        <svg class="mdc-button__icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                            <path
+                                d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
+                        </svg><span class="mdc-button__label">GitHub</span></a>
+                </div>
+            </div>
+        </div>
+        <div class="mdc-layout-grid no-side-pad">
+            <div class="mdc-layout-grid__inner">
+
+                <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3">
+                    <div class="mdc-card full-width">
+                        <div class="mdc-card__media mdc-card__media--16-9 demo-card__media" style="background-image: url(&quot;images/screen-query-runner-500.png&quot;);"></div>
+                        <div class="mdc-card__primary">
+                            <h2 class="mdc-card__title mdc-typography--headline6">Easy to use</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3">
+                    <div class="mdc-card full-width">
+                        <div class="mdc-card__media mdc-card__media--16-9 demo-card__media" style="background-image: url(&quot;images/screen-document-editor-500.png&quot;);"></div>
+                        <div class="mdc-card__primary">
+                            <h2 class="mdc-card__title mdc-typography--headline6">Slick and Simple, but Feature Rich</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3">
+                    <div class="mdc-card full-width">
+                        <div class="mdc-card__media mdc-card__media--16-9 demo-card__media" style="background-image: url(&quot;images/screen-manage-collections-500.png&quot;);"></div>
+                        <div class="mdc-card__primary">
+                            <h2 class="mdc-card__title mdc-typography--headline6">Manage and query against multiple databases/collections</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3">
+                    <div class="mdc-card full-width">
+                        <div class="mdc-card__media mdc-card__media--16-9 demo-card__media" style="background-image: url(&quot;images/screen-side-by-side-500.png&quot;);"></div>
+                        <div class="mdc-card__primary">
+                            <h2 class="mdc-card__title mdc-typography--headline6">Harness the power of Windows to work with multiple collections at once</h2>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <main class="tab" data-tab-name="testimonials" aria-hidden="true">
+        <div class="mdc-layout-grid no-side-pad no-up-pad">
+            <div class="mdc-layout-grid__inner">
+                <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6">
+                    <div class="mdc-card full-width">
+                        <div class="mdc-card__primary">
+                            <h2 class="mdc-card__title mdc-typography--headline6"><a target="_blank" rel="noopener" href="https://www.linkedin.com/in/sergey-bebenin-a832871?trk=hp-identity-name">Sergey Bebenin - Evolv Technoloy</a></h2>
+                        </div>
+                        <div class="mdc-card__secondary mdc-typography--body2">"Google gave us the most comprehensive universal GUI spec to date but without this toolkit and amazing community support, this wouldn’t be possible on native Windows
+                            applications.
+                            <br>
+                            <br> Ever since I found Material Design XAML Toolkit, I have an entirely new outlook on application design. I started paying attention to littlest details and the end result always looks unlike anything you will find in
+                            your current work environment.
+                            <br>
+                            <br> The best part is that you don’t have to learn anything new in XAML and yet controls are highly customizable and the theming engine is as basic as it can get."
+                        </div>
+
+                    </div>
+                </div>
+                <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6">
+                    <div class="mdc-card full-width">
+                        <div class="mdc-card__primary">
+                            <h2 class="mdc-card__title mdc-typography--headline6"><a target="_blank" rel="noopener" href="https://www.laspeziaportservice.it/">Giacomo Galletto - La Spezia Port Service</a></h2>
+                        </div>
+                        <div class="mdc-card__secondary mdc-typography--body2">"As a small company developing vertical solutions, often substance steals time to graphical aspect care, leading to a poor user experience. This until we met Material
+                            Design in XAML.
+                            <br>
+                            <br> We can now adopt cool and modern UI style to our desktop applications without spend much effort to define complex styles to our controls. Material Design in XAML is rich of awesome features and frequently updated with
+                            new ones thanks to a solid and careful maintenance by the author."
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script async src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js" integrity="sha256-1eSvllkLdrfxD6G8RGF9h+mQuD93Af5+GdPBMNc7uMQ=" crossorigin="anonymous"></script>
+    <script async src="https://cdnjs.cloudflare.com/ajax/libs/prettify/r298/run_prettify.min.js" integrity="sha256-hj+5FRlAuvAFANiefn0PpJYCkV1X4QT9EgiPd+6QnCw=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/material-components-web/2.3.0/material-components-web.min.js" integrity="sha256-BzmZ5n2DFLOgqmbLkakCq47YbU8n4s93pqTIrwrgXKM=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/markdown-it/8.4.2/markdown-it.min.js" integrity="sha256-JdPG0DllQPmyIeUeYRUCvk6K3tY7C7RZyVKEcT56yzQ=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.5.5/bluebird.min.js" integrity="sha256-x2waQ9LpHJmQWdOfXbxwSjwVFFqgBYt4HH4Dl3rpZ1w=" crossorigin="anonymous"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=Array.prototype.map%2CObject.assign"></script>
+
+    <script>
+        mdc.autoInit();
+
+        $(".mdc-tab[data-tab-open]").click(function(e) {
+            $(".tab[data-tab-name][aria-hidden=\"false\"]").attr("aria-hidden", true);
+            $(".tab[data-tab-name=\"" + $(e.currentTarget).attr("data-tab-open") + "\"]").attr("aria-hidden", false);
+        });
+
+        $.github = function(path, cb) {
+            return $.ajax({
+                url: "https://api.github.com/" + path,
+                headers: {
+                    Accept: "application/vnd.github.v3+json"
+                },
+
+                success: cb
+            });
+        };
+
+        Promise.all([$.github("repos/MaterialDesignInXAML/MaterialDesignInXamlToolkit/releases").promise(), $.github("repos/MaterialDesignInXaml/F1inXAML/releases").promise(), $.github("repos/ButchersBoy/doobry/releases").promise()]).then(function(
+            data) {
+            $(".f1ix__download").attr("href", "https://github.com/MaterialDesignInXAML/F1InXAML/releases/tag/" + data[1][0].tag_name);
+            $(".f1ix__download .mdc-button__label").text("Download " + data[1][0].name);
+            $(".doobry__download").attr("href", "https://github.com/ButchersBoy/doobry/releases/tag/" + data[2][0].tag_name);
+            $(".doobry__download .mdc-button__label").text("Download " + data[2][0].name);
+            Object.values(Object.assign.apply(Object, [{}].concat(data))).sort(function(a, b) {
+                if (a.published_at < b.published_at)
+                    return 1;
+                else
+                if (a.published_at > b.published_at)
+                    return -1;
+                else
+                    return 0;
+            }).map(function(_a) {
+                var name = _a.name,
+                    body = _a.body,
+                    url = _a.url;
+                var repo = /https:\/\/api\.github\.com\/repos\/(.+)\/releases.*/g.exec(url)[1];
+                var img = function() {
+                    if (repo === "MaterialDesignInXAML/MaterialDesignInXamlToolkit")
+                        return "http://materialdesigninxaml.net/images/MD4XAML.png";
+                    else
+                    if (repo === "ButchersBoy/doobry")
+                        return "http://materialdesigninxaml.net/images/doobry-256-onwhite.png";
+                    else
+                    if (repo === "MaterialDesignInXAML/F1InXAML")
+                        return "http://materialdesigninxaml.net/images/f1ix-150x150.png";
+                }();
+                
+                $(".tab[data-tab-name=\"news\"]").append(
+                    "\n        <div class=\"mdc-card full-width\">\n                <div class=\"mdc-card__primary\">\n                    <h2 class=\"mdc-card__title mdc-typography--headline6\">" + name +
+                    "</h2>\n                </div>\n                <div class=\"mdc-card__secondary mdc-typography--body2\">\n                    <img class=\"wrap-image " + (repo === "MaterialDesignInXAML/F1InXAML" || repo ===
+                        "ButchersBoy/doobry" ? "right-pad" : "") + "\" src=\"" + img + "\" alt=\"" + (repo === "MaterialDesignInXAML/F1InXAML" ? "XAML" : repo === "ButchersBoy/doobry" ? "Doobry" : "F1ix") +
+                    "\">\n                    " + new markdownit().render(body) + "\n                </div>\n        </div>\n        <br>\n        ");
+            });
+            $(".news__progress").get(0).MDCLinearProgress.close();
+        });
+    </script>
+
+</body>
+
+</html>
