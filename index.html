@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description"
+    content="Comprehensive and easy to use Material Design theme and control library for the Windows desktop">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+  <title>Material Design In XAML</title>
+
+  <!-- Add to homescreen for Chrome on Android -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <link rel="icon" sizes="192x192" href="images/site-logo.png">
+
+  <!-- Add to homescreen for Safari on iOS -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="Material Design In XAML">
+  <link rel="apple-touch-icon-precomposed" href="images/site-logo.png">
+
+  <link rel="shortcut icon" href="images/favicon.ico">
+
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link href="css/material.indigo-pink.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
+  <link rel="stylesheet" href="css/styles.css">
+
+</head>
+
+<body class="mdl-demo mdl-color--grey-100 mdl-color-text--grey-700 mdl-base">
+  <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+    <header class="mdl-layout__header mdl-layout__header--scroll mdl-color--primary">
+      <div class="mdl-layout--large-screen-only mdl-layout__header-row div-header">
+        <img src="images/site-logo.png" width="80" height="80" />
+        <h3>Material Design In XAML</h3>
+      </div>
+      <div class="mdl-layout__tab-bar mdl-js-ripple-effect mdl-color--primary-dark">
+        <a href="#overview" class="mdl-layout__tab is-active">Overview</a>
+        <a href="#quick-start" class="mdl-layout__tab">Get Started</a>
+        <a href="#about-us" class="mdl-layout__tab">About Us</a>
+        <a href="https://github.com/MaterialDesignInXAML/MaterialDesignInXamlToolkit/wiki" class="mdl-layout__tab"
+          target="_blank">Documentation</a>
+        <a href="https://github.com/MaterialDesignInXAML/MaterialDesignInXamlToolkit"
+          class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored mdl-shadow--4dp mdl-color--accent"
+          id="btn-github" target="_blank">
+          <i class="fa-brands fa-github material-icons"></i>
+        </a>
+        <div class="mdl-tooltip" data-mdl-for="btn-github">
+          GitHub Repository
+        </div>
+      </div>
+    </header>
+    <main class="mdl-layout__content">
+      <div class="mdl-layout__tab-panel is-active" id="overview">
+        <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
+          <div class="mdl-cell mdl-cell--12-col mdl-card welcome-card portfolio-card">
+            <div class="mdl-card__title">
+              <h2 class="mdl-card__title-text">Material Design In XAML Toolkit</h2>
+            </div>
+            <div class="mdl-card__supporting-text">
+              <p>
+                Welcome the one of the most comphrensive and easy to use Material Design UI libraries across any
+                platform.
+              </p>
+              <p>
+                With Material Design In XAML Toolkit you can easily bring beautiful desktop applications to life, using
+                a modern and popular design language.
+              </p>
+              <p>
+                Fully open source and one of the most popular GUI libraries for WPF, the library is also compatible with
+                MahApps and Dragablz.
+              </p>
+              <a class="github-button" href="https://github.com/MaterialDesignInXAML/MaterialDesignInXamlToolkit"
+                data-icon="octicon-star" data-size="large" data-show-count="true"
+                aria-label="Star MaterialDesignInXamlToolkit on GitHub">Star</a>
+            </div>
+            <div class="mdl-card__actions mdl-card--border">
+              <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--accent"
+                href="https://github.com/ButchersBoy/MaterialDesignInXamlToolkit"
+                data-upgraded=",MaterialButton,MaterialRipple">
+                GitHub &amp; Demo
+                <span class="mdl-button__ripple-container"><span class="mdl-ripple"></span></span></a>
+              <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--accent"
+                href="https://gitter.im/ButchersBoy/MaterialDesignInXamlToolkit"
+                data-upgraded=",MaterialButton,MaterialRipple">
+                Gitter &amp; Chat
+                <span class="mdl-button__ripple-container"><span class="mdl-ripple"></span></span></a>
+              <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--accent"
+                href="https://www.nuget.org/packages/MaterialDesignThemes/"
+                data-upgraded=",MaterialButton,MaterialRipple">
+                Nuget &amp; Lib
+                <span class="mdl-button__ripple-container"><span class="mdl-ripple"></span></span></a>
+            </div>
+          </div>
+        </section>
+        <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
+          <div class="mdl-cell mdl-cell--12-col mdl-card">
+            <div class="mdl-card__supporting-text">
+              <h4>Features</h4>
+              <ul>
+                <li>Styles and variations for the majority of standard WPF controls</li>
+                <li>Many more additional controls to support the Material Design aesthetic and flow</li>
+                <li>Easy configuration of Material Design Colour palettes at both design and run time</li>
+                <li>Transitions API for easy build GUI animations</li>
+                <li>Works stand-alone, and also compatible with other popular WPF frameworks, MahApps and Dragablz
+                </li>
+                <li>MVVM framework agnostic</li>
+              </ul>
+            </div>
+            <div class="mdl-card__actions">
+              <a href="https://github.com/MaterialDesignInXAML/MaterialDesignInXamlToolkit/releases"
+                class="mdl-button">Download the demo app</a>
+            </div>
+          </div>
+        </section>
+        <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
+          <div class="mdl-cell mdl-cell--12-col mdl-card">
+            <div class="mdl-card__title">
+              <h1 class="mdl-card__title-text">Standard WPF Control Styles</h1>
+            </div>
+            <div class="mdl-card__media"><img class="screen-image" src="images/demo-buttons.jpg">
+            </div>
+          </div>
+        </section>
+        <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
+          <div class="mdl-cell mdl-cell--12-col mdl-card">
+            <div class="mdl-card__title">
+              <h1 class="mdl-card__title-text">Material Design Specific Controls</h1>
+            </div>
+            <div class="mdl-card__media"><img class="screen-image" src="images/screen-chips.jpg">
+            </div>
+            <div class="mdl-card__supporting-text">
+              <p>
+                In addition to standard control themes the kit contains new controls to help deliver a full Material
+                Design experience, including: clocks, drawers, dialogs, floating action buttons, chips, and more.
+              </p>
+            </div>
+          </div>
+        </section>
+        <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
+          <div class="mdl-cell mdl-cell--12-col mdl-card">
+            <div class="mdl-card__title">
+              <h1 class="mdl-card__title-text">Material Design Icons</h1>
+            </div>
+            <div class="mdl-card__media"><img class="screen-image" src="images/screen-icons.jpg">
+            </div>
+            <div class="mdl-card__supporting-text">
+              <p>
+                Material Design In XAML Toolkit includes the Material Design Icons collection.
+                For more information on Material Design Icons see <a href="https://materialdesignicons.com/">the
+                  official website</a>.
+              </p>
+            </div>
+          </div>
+        </section>
+        <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
+          <div class="mdl-cell mdl-cell--12-col mdl-card">
+            <div class="mdl-card__title">
+              <h1 class="mdl-card__title-text">Built-in theme management</h1>
+            </div>
+            <div class="mdl-card__media"><img class="screen-image" src="images/demo-palette.jpg">
+            </div>
+            <div class="mdl-card__supporting-text">
+              <p>
+                The built-in theme management allows you to easily define a theme for your application.
+                It also allows you to easily switch between light and dark themes.
+              </p>
+            </div>
+          </div>
+        </section>
+      </div>
+      <div class="mdl-layout__tab-panel" id="quick-start">
+        <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
+          <div class="mdl-cell mdl-cell--12-col mdl-card">
+            <div class="mdl-card__title">
+              <h1 class="mdl-card__title-text">Get Started</h1>
+            </div>
+            <div class="mdl-card__media"><img class="article-image" src="images/getstarted.jpg">
+            </div>
+            <div class="mdl-card__supporting-text">
+              <p>
+                Getting started bringing Material Design to your WPF apps takes minutes, follow this guide and dive in,
+                and if you want, join our community. This is our "super quick start" guide. A more comprehensive getting
+                started guide can be found on our <a
+                  href="https://github.com/MaterialDesignInXAML/MaterialDesignInXamlToolkit/wiki">Wiki</a>, and we
+                highly recommend you download and run the demo application.
+              </p>
+              <div id="getstarted-md-div">
+                <h1 class="mdl-card__title-text mdl-color-text--black">Super Quick Start</h1>
+                <hr>
+                <zero-md
+                  src="https://raw.githubusercontent.com/wiki/MaterialDesignInXAML/MaterialDesignInXamlToolkit/Super-Quick-Start.md">
+                </zero-md>
+              </div>
+            </div>
+            <div class="mdl-card__actions mdl-card--border">
+              <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--accent"
+                href="https://github.com/MaterialDesignInXAML/MaterialDesignInXamlToolkit/wiki"
+                data-upgraded=",MaterialButton,MaterialRipple">
+                Read the Full guide
+                <span class="mdl-button__ripple-container"><span class="mdl-ripple"></span></span></a>
+            </div>
+          </div>
+        </section>
+      </div>
+      <div class="mdl-layout__tab-panel" id="about-us">
+        <section class="section--center mdl-grid mdl-grid--no-spacing">
+          <div class="mdl-cell mdl-cell--12-col">
+            <h4>About us</h4>
+            <p>
+              Historically created in 2015 by James Willock, Material Design In XAML (also known as MDIX) has gradually
+              established itself as one of the pillars in the field of WPF open source libraries.
+            </p>
+            <p>
+              In 2019, Kevin Bost became the new maintainer of the library.
+            </p>
+            <p>
+              Today, Material Design In XAML continues to bring new features every day thanks to the support of the
+              community and the various contributors of the project.
+            </p>
+          </div>
+          <div class="mdl-cell mdl-cell--6-col text-center">
+            <h5>James Willock</h5>
+            <img class="avatar-user" src="https://avatars.githubusercontent.com/u/658107?v=4" width="250"
+              height="250" />
+            <p class="follow">
+              <a class="github-button" href="https://github.com/ButchersBoy" data-size="large"
+                aria-label="@ButchersBoy on GitHub">@ButchersBoy</a>
+            </p>
+          </div>
+          <div class="mdl-cell mdl-cell--6-col text-center">
+            <h5>Kevin Bost</h5>
+            <img class="avatar-user" src="https://avatars.githubusercontent.com/u/952248?v=4" width="250"
+              height="250" />
+            <p class="follow">
+              <a class="github-button" href="https://github.com/Keboo" data-size="large"
+                aria-label="@Keboo on GitHub">@Keboo</a>
+            </p>
+          </div>
+          <div class="text-center">
+            <h5>
+              This project exists thanks to all the people who contribute !
+            </h5>
+            <div style="margin-top: 30px;">
+              <a href="https://github.com/MaterialDesignInXAML/MaterialDesignInXamlToolkit/graphs/contributors">
+                <img src="https://contrib.rocks/image?repo=MaterialDesignInXAML/MaterialDesignInXamlToolkit" />
+              </a>
+            </div>
+          </div>
+        </section>
+      </div>
+      <footer class="mdl-mini-footer">
+        <div class="footer-container">
+          <div class="mdl-logo">Material Design In XAML: <a
+              href="https://github.com/MaterialDesignInXAML/MaterialDesignInXamlToolkit" target="_blank">GitHub</a>
+          </div>
+          <ul class="mdl-mini-footer__link-list">
+            <li><a
+                href="https://github.com/MaterialDesignInXAML/MaterialDesignInXamlToolkit/blob/master/LICENSE">Licence</a>
+            </li>
+          </ul>
+        </div>
+      </footer>
+    </main>
+  </div>
+  <a href="https://opencollective.com/materialdesigninxaml" target="_blank" id="support-us"
+    class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--accent mdl-color-text--accent-contrast">
+    <i class="fa-solid fa-heart"></i>
+    Support us
+  </a>
+  <script src="js/material.min.js"></script>
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+  <!-- Mardown viewer -->
+  <script type="module" src="https://cdn.jsdelivr.net/gh/zerodevx/zero-md@2/dist/zero-md.min.js"></script>
+</body>
+
+</html>
